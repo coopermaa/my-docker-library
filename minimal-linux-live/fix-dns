@@ -1,10 +1,23 @@
 #!/bin/bash
 
-rootfs=work/rootfs/
+rootfs=work/rootfs
 
-# Copy additional libraryies to make DNS work
-cp --parents /lib/modules/3.13.0-44-generic/kernel/drivers/net/ethernet/intel/e1000/e1000.ko $rootfs
-cp --parents /lib/x86_64-linux-gnu/lib{resolv,c,nsl,nss_*}.so.* $rootfs
+# Copy additional libraries to make DNS work
+cp --parents /lib/x86_64-linux-gnu/lib{resolv,c,m,nsl,nss_*}.so.* $rootfs
 cp --parents /lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 $rootfs
+
+# Copy busybox to rootfs
+# glibc itself require additional libraries for DNS lookups
+# We have already copy the libraries, but it still doesn't work
+# Alternative is recompiling busybox against uclibc, and another way
+# is use busybox-static in Debian/Ubuntu Repo, although this is not the right way
+# (Don't know how Debian/Ubuntu fix this bug, may be it's linked with different version of glibc)
+cp /bin/busybox $rootfs/bin/busybox
+
+cat >> $rootfs/etc/bootscript.sh <<EOF
+ifconfig lo up; ifconfig eth0 10.0.2.101 up
+route add default gw 10.0.2.2
+echo "nameserver 8.8.8.8" > /etc/resolv.conf
+EOF
 
 source ./6_pack_rootfs.sh
