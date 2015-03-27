@@ -1,0 +1,10 @@
+#!/bin/bash
+
+rootfs=work/rootfs/
+
+# Copy additional libraryies to make DNS work
+cp --parents /lib/modules/3.13.0-44-generic/kernel/drivers/net/ethernet/intel/e1000/e1000.ko $rootfs
+cp --parents /lib/x86_64-linux-gnu/lib{resolv,c,nsl,nss_*}.so.* $rootfs
+cp --parents /lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 $rootfs
+
+source ./6_pack_rootfs.sh

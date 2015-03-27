@@ -1,0 +1,14 @@
+#!/bin/bash
+
+KERNEL=$(echo work/kernel/linux-*)/arch/x86/boot/bzImage 
+
+# CTRL+a then c to toggle between guest system console and QEMU monitor console
+# CTRL+a then x to terminate QEMU instance.
+# In nographic mode, qemu disables virtual console. To obtain a system console, the 
+# virtual serial port can be used. In this mode, the virtual serial port is redirected to 
+# the host's stdio by default. Pass "console=ttySn" (PC) or "console=ttyAMAn" (ARM related) 
+# where n is 0, 1, ... on the kernel command line
+qemu-system-x86_64 -nographic \
+  -kernel $KERNEL \
+  -initrd work/rootfs.cpio.gz \
+  -append "console=ttyS0"
