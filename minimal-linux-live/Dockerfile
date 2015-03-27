@@ -14,7 +14,6 @@ RUN         git clone https://github.com/ivandavidov/minimal/ && \
             git checkout $IMG_VERSION
               
 ADD         ./run /minimal/src/
-
+ADD         ./fix-dns /minimal/src/
 WORKDIR     /minimal/src
-
 RUN         ./build_minimal_linux_live.sh
