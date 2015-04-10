@@ -1,5 +1,7 @@
 FROM        coopermaa/buildroot:2015.02
 MAINTAINER  Cooper Maa <coopermaa77@gmail.com>
+
+ENV         IMG_VERSION 2015.04
             
 RUN         make qemu_arm_versatile_defconfig
 RUN         for CFVAR in \

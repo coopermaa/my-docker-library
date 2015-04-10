@@ -1,6 +1,8 @@
 FROM        coopermaa/buildroot:2015.02
 MAINTAINER  Cooper Maa <coopermaa77@gmail.com>
             
+ENV         IMG_VERSION 2015.04
+
 RUN         make qemu_x86_64_defconfig
 RUN         for CFVAR in \
                BR2_TOOLCHAIN_BUILDROOT_LARGEFILE \
