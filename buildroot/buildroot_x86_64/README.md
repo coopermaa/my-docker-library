@@ -16,6 +16,8 @@ This is dockerized buildroot with following features:
 
 ## How to use buildroot_x86_64
 
+**Warning!** coopermaa/buildroot_x86_64 > 3.2 GB and Docker > 1.2 is required.
+
 Create a buildroot_x86_64 container:
 
     $ docker run -it coopermaa/buildroot_x86_64
