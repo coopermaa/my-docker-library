@@ -12,7 +12,7 @@ This is dockerized buildroot with following features:
 
   * Based on [ubuntu:trusty](https://registry.hub.docker.com/_/ubuntu/) image
   * With buildroot installed, and pre-built toolchain for x86_64 target
-  * Additiona packages: git, qemu
+  * Additional packages: git, qemu
 
 ## How to use buildroot_x86_64
 
