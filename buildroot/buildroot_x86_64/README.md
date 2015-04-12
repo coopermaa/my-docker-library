@@ -29,7 +29,7 @@ Then, start to use buildroot inside the container:
     # make
     ...
     # ls output/images
-    rootfs.tar     rootfs.ext2     zImage
+    rootfs.tar     rootfs.ext2     bzImage
 
 Run the image with qemu:
 
