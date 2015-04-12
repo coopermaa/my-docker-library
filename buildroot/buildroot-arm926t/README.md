@@ -16,6 +16,8 @@ This is dockerized buildroot with following features:
 
 ## How to use buildroot-arm926t
 
+**Warning!** coopermaa/buildroot_x86_64 > 3.2 GB and Docker > 1.2 is required.
+
 Create a buildroot-arm926t container:
 
     $ docker run -it coopermaa/buildroot-arm926t
