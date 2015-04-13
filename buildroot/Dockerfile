@@ -5,7 +5,7 @@ ENV         BR_VERSION 2015.02
 
 # Install Mandatory packages for buildroot, see: http://goo.gl/bmmWuE
 RUN         DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get install -y \
-            wget build-essential libncurses-dev unzip bc rsync python git tree \
+            curl wget build-essential libncurses-dev unzip bc rsync python git tree \
             syslinux genisoimage dnsutils qemu
             
 WORKDIR     /tmp
